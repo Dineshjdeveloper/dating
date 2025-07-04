@@ -112,6 +112,48 @@ public class UserService {
 		}
 		
 	}
+	public ResponseEntity<?> searchByName(String letters) {
+		List<User> users=userDao.searchByName("%"+letters+"%");   //HQL
+		
+		if(users.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No user found with letters :"+letters);
+		}
+		else {
+		    return ResponseEntity.status(HttpStatus.OK).body(users);
+
+		}
+	}
+	public ResponseEntity<?> searchByEmail(String letters) {
+		List<User> users=userDao.searchByEmail("%"+letters+"%");
+		if (users.isEmpty()) {
+			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("No user found with this letters :"+letters);
+		}
+		else {
+			return ResponseEntity.status(HttpStatus.OK).body(users);
+		}
+	}
 
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

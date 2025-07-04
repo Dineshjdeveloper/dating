@@ -45,4 +45,41 @@ public class UserDao {
 	}
 
 
+	public List<User> searchByName(String strin) {
+		
+		return userRepository.searchByName(strin);
+	}
+
+
+	public List<User> searchByEmail(String letters) {
+		return userRepository.searchByEmail(letters);
+	}
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
